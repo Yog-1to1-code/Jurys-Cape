@@ -1,9 +1,12 @@
 from fastapi import APIRouter, HTTPException
 from app.models.case_file import CaseFileRequest, FactExtractionResponse
 from app.services.llmengine import analyze_case_text
-from app.data.legal_codes import BNS_mapping 
+from app.models.legal_codes import BNS_MAPPING
+
+from app.api.endpoints.swarm import router as swarm_router
 
 router = APIRouter()
+router.include_router(swarm_router)
 
 @router.get("/")
 async def health_check():

@@ -6,3 +6,5 @@ langchain
 langchain-ollama
 chromadb
 pdfplumber
+httpx
+pytest

@@ -16,6 +16,10 @@ app.add_middleware(
 
 app.include_router(router, prefix=settings.API_PREFIX)
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Juris-Cape API", "docs": "/docs", "health_check": f"{settings.API_PREFIX}/"}
+
 # This is just for debugging
 if __name__ == "__main__":
     import uvicorn
